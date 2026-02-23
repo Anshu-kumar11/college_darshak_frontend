@@ -1,1 +1,25 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #008080;
+}
+
+.bg-gradient-primary {
+  --background-gradient-primary: linear-gradient(
+    103.62deg,
+    #f1fdfb 7.4%,
+    #9ff2f2 131.32%
+  );
+  background: var(--background-gradient-primary);
+}
+
+.signup-img-gradient {
+  /* background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%); */
+
+  --signup-gradient: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  background: var(--signup-gradient);
+}
