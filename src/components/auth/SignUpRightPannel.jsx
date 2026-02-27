@@ -5,7 +5,7 @@ import SignUpProgressBar from "../auth/SignUpProgressBar";
 const SignUpRightPannel = () => {
   return (
     <div className="hidden lg:flex justify-end">
-      <div className="relative w-[450px] h-[90vh] rounded-xl overflow-hidden shadow-2xl">
+      <div className="relative w-112.5 h-[90vh] rounded-xl overflow-hidden shadow-2xl">
         {/* Image */}
         <img
           src={signupimage}
@@ -28,7 +28,7 @@ const SignUpRightPannel = () => {
 
         {/* Stepper */}
         <div className="absolute bottom-20 left-1/3 -translate-x-1/2 z-10">
-          <SignUpProgressBar currentStep={3} />
+          <SignUpProgressBar currentStep={1} />
         </div>
       </div>
     </div>

@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SignUpRightPannel from "./SignUpRightPannel";
 import documentIcon from "../../assets/image/Document.png";
 import { IoChevronUpOutline } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
 
 const SignUpProfileSetup = () => {
-  const [openSection, setOpenSection] = useState(true);
+  const [openSection, setOpenSection] = useState(false);
   const [openCompany, setOpenCompany] = useState(false);
+  const [activeSection, setActiveSection] = useState("personal");
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-gradient-primary">
@@ -40,7 +41,7 @@ const SignUpProfileSetup = () => {
 
             {/* CONTENT */}
             {openSection && (
-              <div className="mt-6 space-y-5">
+              <div className="space-y-2">
                 {/* NAME */}
                 <div className="flex flex-col gap-2">
                   <label className="text-sm text-primary">Your Name</label>
