@@ -1,6 +1,6 @@
 import React from "react";
-import signupimage from "../assets/image/signUp.png";
-import SignUpProgressBar from "../components/auth/SignUpProgressBar";
+import SignUpRightPannel from "../components/auth/SignUpRightPannel";
+
 const SignUp = () => {
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-gradient-primary ">
@@ -27,7 +27,12 @@ const SignUp = () => {
           />
 
           {/* Button */}
-          <button className="max-w-md w-full bg-primary text-white py-3 rounded-xl font-medium hover:opacity-90 transition">
+          <button
+            onClick={() => {
+              window.location.href = "/signup-otp-verification";
+            }}
+            className="max-w-md w-full bg-primary text-white py-3 rounded-xl font-medium hover:opacity-90 transition"
+          >
             Send OTP
           </button>
 
@@ -38,34 +43,7 @@ const SignUp = () => {
         </div>
 
         {/* Right Side - Image Card */}
-        <div className="hidden lg:flex justify-end">
-          <div className="relative w-[450px] h-[90vh] rounded-xl overflow-hidden shadow-2xl">
-            {/* Image */}
-            <img
-              src={signupimage}
-              alt="Graduation"
-              className="w-full h-full object-cover"
-            />
-
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 signup-img-gradient" />
-
-            {/* Text Content */}
-            <div className="absolute bottom-[40%] left-1/2 -translate-x-1/2 text-white z-10 w-full px-8">
-              <h2 className="text-3xl font-semibold leading-snug">
-                Create your account
-              </h2>
-              <p className="text-2xl ml-20 opacity-80 [text-shadow:0px_4px_12px_rgba(0,0,0,0.4)]">
-                in few clicks
-              </p>
-            </div>
-
-            {/* Stepper */}
-            <div className="absolute bottom-20 left-1/3 -translate-x-1/2 z-10">
-              <SignUpProgressBar currentStep={2} />
-            </div>
-          </div>
-        </div>
+        <SignUpRightPannel />
       </div>
     </div>
   );

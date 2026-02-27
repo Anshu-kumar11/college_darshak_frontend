@@ -1,4 +1,5 @@
 import React from "react";
+import { IoIosCheckmark } from "react-icons/io";
 
 const steps = [
   { id: 1, label: "Sign up" },
@@ -31,7 +32,7 @@ const SignUpProgressBar = ({ currentStep = 1 }) => {
                     : "border-white/40 text-white/60"
               }`}
             >
-              {isCompleted ? "✓" : step.id}
+              {isCompleted ? <IoIosCheckmark className="text-4xl" /> : step.id}
             </div>
 
             {/* Label */}
