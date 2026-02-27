@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import SignUpRightPannel from "../components/auth/SignUpRightPannel";
-
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 const SignUp = () => {
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+
+  const handleOtpSend = () => {
+    if (!email) {
+      toast.error("Please enter your email");
+      return;
+    }
+    toast.success("OTP sent successfully");
+    navigate("/signup-otp-verification");
+    setEmail("");
+  };
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-gradient-primary ">
       {/* Main Container */}
@@ -21,6 +34,8 @@ const SignUp = () => {
           {/* Input */}
 
           <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             type="email"
             placeholder="Enter your email"
             className=" border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary  w-[30rem]"
@@ -28,10 +43,8 @@ const SignUp = () => {
 
           {/* Button */}
           <button
-            onClick={() => {
-              window.location.href = "/signup-otp-verification";
-            }}
-            className="max-w-md w-full bg-primary text-white py-3 rounded-xl font-medium hover:opacity-90 transition"
+            onClick={handleOtpSend}
+            className="max-w-md w-full bg-primary text-white py-3 rounded-xl font-medium hover:opacity-90 transition cursor-pointer"
           >
             Send OTP
           </button>

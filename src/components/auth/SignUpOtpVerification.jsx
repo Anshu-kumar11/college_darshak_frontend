@@ -1,11 +1,13 @@
 import React, { useRef, useState } from "react";
 import SignUpRightPannel from "./SignUpRightPannel";
 import { ArrowLeft } from "lucide-react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const SignUpOtpVerification = () => {
   const [otp, setOtp] = useState(["", "", "", ""]);
   const inputsRef = useRef([]);
-
+  const navigate = useNavigate();
   const handleChange = (value, index) => {
     if (!/^[0-9]?$/.test(value)) return;
 
@@ -23,6 +25,19 @@ const SignUpOtpVerification = () => {
     if (e.key === "Backspace" && !otp[index] && index > 0) {
       inputsRef.current[index - 1].focus();
     }
+  };
+
+  const handleotpVerification = () => {
+    const enteredOtp = otp.join("");
+    if (enteredOtp.length < 4) {
+      toast.error("Please enter the complete 4-digit OTP");
+      return;
+    }
+
+    toast.success("OTP verified successfully");
+
+    navigate("/signup-profile-setup");
+    setOtp(["", "", "", ""]);
   };
 
   return (
@@ -72,10 +87,8 @@ const SignUpOtpVerification = () => {
 
           {/* Verify Button */}
           <button
-            onClick={() => {
-              window.location.href = "/signup-profile-setup";
-            }}
-            className="w-72  bg-primary text-white py-3 rounded-xl font-medium hover:opacity-90 transition"
+            onClick={handleotpVerification}
+            className="w-72  bg-primary text-white py-3 rounded-xl font-medium hover:opacity-90 transition cursor-pointer"
           >
             Verify OTP
           </button>
