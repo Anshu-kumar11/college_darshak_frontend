@@ -90,7 +90,7 @@ const SignUpProfileSetup = () => {
               </div>
               {successfulPopUp && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-50">
-                  <div className="bg-white rounded-2xl shadow-xl w-[460px] p-10 flex flex-col items-center text-center space-y-6">
+                  <div className="bg-white rounded-2xl shadow-xl w-115 p-10 flex flex-col items-center text-center space-y-6">
                     {/* Success Icon */}
                     <img
                       src={successfull}

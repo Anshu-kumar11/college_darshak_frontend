@@ -20,9 +20,9 @@ const SignUp = () => {
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-gradient-primary ">
       {/* Main Container */}
-      <div className=" w-[80vw] grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <div className=" grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Left Side - Form */}
-        <div className="space-y-4">
+        <div className="space-y-4 w-[45vw] flex flex-col items-center justify-center">
           <div>
             <h1 className="text-primary text-4xl font-bold">
               Nice to meet you!
@@ -39,7 +39,7 @@ const SignUp = () => {
             onChange={(e) => setEmail(e.target.value)}
             type="email"
             placeholder="Enter your email"
-            className=" border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary  w-[30rem]"
+            className=" border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary max-w-md w-full"
           />
 
           {/* Button */}

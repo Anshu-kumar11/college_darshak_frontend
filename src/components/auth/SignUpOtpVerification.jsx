@@ -43,9 +43,9 @@ const SignUpOtpVerification = () => {
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-gradient-primary">
       {/* Main Container */}
-      <div className="w-[80vw] grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <div className=" grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Left Side - OTP Form */}
-        <div className="space-y-6 flex flex-col justify-centern items-center">
+        <div className="space-y-6 flex flex-col justify-centern items-center w-[45vw]">
           {/* Back Arrow */}
           <div className="flex items-center relative">
             <ArrowLeft
