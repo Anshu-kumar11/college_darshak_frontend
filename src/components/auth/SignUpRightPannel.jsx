@@ -1,6 +1,5 @@
 import React from "react";
 import signupimage from "../../assets/image/signUp.png";
-import SignUpProgressBar from "../auth/SignUpProgressBar";
 
 const SignUpRightPannel = () => {
   return (
@@ -17,18 +16,21 @@ const SignUpRightPannel = () => {
         <div className="absolute inset-0 signup-img-gradient" />
 
         {/* Text Content */}
-        <div className="absolute bottom-[40%] left-1/2 -translate-x-1/2 text-white z-10 w-full px-8">
-          <h2 className="text-3xl font-semibold leading-snug">
-            Create your account
+        <div className="absolute top-[8%] left-12 text-white z-10 max-w-[420px]">
+          {/* Heading */}
+          <h2 className="text-4xl font-semibold leading-tight ml-8">
+            Everything you need,
           </h2>
-          <p className="text-2xl ml-20 opacity-80 [text-shadow:0px_4px_12px_rgba(0,0,0,0.4)]">
-            in few clicks
-          </p>
-        </div>
 
-        {/* Stepper */}
-        <div className="absolute bottom-20 left-1/3 -translate-x-1/2 z-10">
-          <SignUpProgressBar currentStep={1} />
+          {/* Sub heading */}
+          <p className="text-4xl font-light opacity-90 leading-tight ml-48">
+            in one place
+          </p>
+
+          {/* Description */}
+          <p className="mt-4 text-lg opacity-80 [text-shadow:0px_4px_12px_rgba(0,0,0,0.4)]">
+            Sign in to manage tasks, progress, and insights.
+          </p>
         </div>
       </div>
     </div>

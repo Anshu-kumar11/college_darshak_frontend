@@ -1,127 +1,121 @@
-import React, { useEffect, useState } from "react";
-import SignUpRightPannel from "./SignUpRightPannel";
+import React, { useState } from "react";
 import documentIcon from "../../assets/image/Document.png";
-import { IoChevronUpOutline } from "react-icons/io5";
-import { IoIosArrowDown } from "react-icons/io";
-
+import successfull from "../../assets/image/successfull.png";
 const SignUpProfileSetup = () => {
-  const [openSection, setOpenSection] = useState(false);
-  const [openCompany, setOpenCompany] = useState(false);
-  const [activeSection, setActiveSection] = useState("personal");
-
+  const [successfulPopUp, setSuccessfulPopUp] = useState(false);
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-gradient-primary">
-      <div className="w-[85vw] grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-        {/* LEFT SIDE */}
-        <div className="space-y-6">
-          <h1 className="text-primary text-3xl font-bold text-center">
-            Let’s setup your profile.
-          </h1>
+      <div className="flex flex-col items-center space-y-6">
+        {/* Heading */}
+        <h1 className="text-primary text-3xl font-bold text-center">
+          Lets set up your student profile
+        </h1>
 
-          {/* CARD CONTAINER */}
-          <div className="bg-white/40 backdrop-blur-md border border-gray-300 rounded-2xl p-5 shadow-md">
-            {/* HEADER */}
-            <div
-              className="flex items-center justify-between cursor-pointer"
-              onClick={() => setOpenSection(!openSection)}
-            >
-              <div className="flex items-center gap-3">
-                <img src={documentIcon} alt="document" className="w-6 h-6" />
-                <p className="font-semibold text-gray-700">
-                  Personal Information
-                </p>
-              </div>
-
-              {openSection ? (
-                <IoChevronUpOutline size={20} />
-              ) : (
-                <IoIosArrowDown size={20} />
-              )}
-            </div>
-
-            {/* CONTENT */}
-            {openSection && (
-              <div className="space-y-2">
-                {/* NAME */}
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm text-primary">Your Name</label>
-                  <input
-                    type="text"
-                    placeholder="Enter Your Full Name"
-                    className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-
-                {/* LINKEDIN */}
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm text-primary">
-                    Your LinkedIn Profile
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="https://www.linkedin.com/in/"
-                    className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-
-                {/* LOCATION */}
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm text-primary">Location*</label>
-                  <input
-                    type="text"
-                    placeholder="Location"
-                    className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-
-                {/* JOB ROLE */}
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm text-primary">Job Role</label>
-                  <input
-                    type="text"
-                    placeholder="Job Role"
-                    className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-
-                {/* NEXT BUTTON */}
-                <div className="flex justify-end pt-3">
-                  <button className="bg-primary text-white px-8 py-3 rounded-full font-medium hover:opacity-90 transition">
-                    Next
-                  </button>
-                </div>
-              </div>
-            )}
+        {/* CARD */}
+        <div className="bg-white/40 backdrop-blur-md border border-gray-300 rounded-2xl p-8 shadow-md w-[550px]">
+          {/* HEADER */}
+          <div className="flex items-center gap-3 mb-6">
+            <img src={documentIcon} alt="document" className="w-6 h-6" />
+            <p className="font-semibold text-gray-700 text-lg">
+              Personal Details
+            </p>
           </div>
 
-          {/* SECOND COLLAPSED SECTION */}
-          <div className="bg-white/40 backdrop-blur-md border border-gray-300 rounded-2xl p-5 shadow-md">
-            <div
-              onClick={() => setOpenCompany(!openCompany)}
-              className="flex items-center justify-between cursor-pointer"
-            >
-              <div className="flex items-center gap-3">
-                <img src={documentIcon} alt="company" className="w-6 h-6" />
-                <p className="font-semibold text-gray-700">
-                  Company Information
-                </p>
-              </div>
-
-              {openCompany ? (
-                <IoChevronUpOutline size={20} />
-              ) : (
-                <IoIosArrowDown size={20} />
-              )}
+          {/* FORM */}
+          <div className="space-y-5">
+            {/* NAME */}
+            <div className="flex flex-col gap-2">
+              <label className="text-sm text-primary">Name *</label>
+              <input
+                type="text"
+                placeholder="Enter name"
+                className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+              />
             </div>
 
-            {openCompany && (
-              <div className="mt-4">{/* Company fields here */}</div>
-            )}
+            {/* DOB + EDUCATION */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="flex flex-col gap-2">
+                <label className="text-sm text-primary">Date Of Birth</label>
+                <input
+                  type="date"
+                  className="border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label className="text-sm text-primary">Education Level</label>
+                <select className="border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                  <option>--Select education--</option>
+                  <option>Secondary</option>
+                  <option>Senior Secondary</option>
+                  <option>Undergraduate</option>
+                  <option>Postgraduate</option>
+                </select>
+              </div>
+            </div>
+
+            {/* COURSE + COLLEGE */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="flex flex-col gap-2">
+                <label className="text-sm text-primary">Target Course</label>
+                <select className="border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                  <option>--Select Course--</option>
+                  <option>B.Tech</option>
+                  <option>BCA</option>
+                  <option>BBA</option>
+                </select>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label className="text-sm text-primary">Target College</label>
+                <select className="border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                  <option>--Select college--</option>
+                  <option>IIT Delhi</option>
+                  <option>NIT Trichy</option>
+                  <option>Delhi University</option>
+                </select>
+              </div>
+            </div>
+
+            {/* BUTTON */}
+            <div className="flex justify-center pt-2 relative">
+              <div className="flex justify-center pt-4">
+                <button
+                  onClick={() => setSuccessfulPopUp(true)}
+                  className="bg-primary text-white px-10 py-3 rounded-full hover:opacity-90 transition"
+                >
+                  Submit
+                </button>
+              </div>
+              {successfulPopUp && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-50">
+                  <div className="bg-white rounded-2xl shadow-xl w-[460px] p-10 flex flex-col items-center text-center space-y-6">
+                    {/* Success Icon */}
+                    <img
+                      src={successfull}
+                      alt="success"
+                      className="w-20 h-20"
+                    />
+
+                    {/* Message */}
+                    <p className="text-lg font-medium text-gray-700">
+                      Profile Created Successfully
+                    </p>
+
+                    {/* Button */}
+                    <button
+                      className="bg-primary text-white w-full py-3 rounded-full hover:opacity-90 transition"
+                      onClick={() => setSuccessfulPopUp(false)}
+                    >
+                      Go to Home
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-
-        {/* RIGHT SIDE */}
-        <SignUpRightPannel />
       </div>
     </div>
   );
